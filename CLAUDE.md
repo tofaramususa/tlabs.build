@@ -159,7 +159,10 @@ const semanticColors = {
 const fonts = {
   primary: "Geist Sans", // UI text, optimal readability from geist package
   mono: "Geist Mono",    // Code, data, numbers from geist package
-  custom: "Tobias",      // Custom brand font from public/fonts/
+  serif: "Tobias",       // Custom serif font from public/fonts/
+  display: "ABC Diatype", // Modern sans-serif for headings and UI
+  displayMono: "ABC Diatype Mono", // Monospace variant for code/data
+  displayPlus: "ABC Diatype Plus", // Enhanced variant with special features
 };
 
 const textSizes = {
@@ -168,6 +171,16 @@ const textSizes = {
   base: "text-base", // 16px - Main content
   lg: "text-lg",     // 18px - Headings, emphasis
   xl: "text-xl",     // 20px - Page titles
+};
+
+// Font Usage Guidelines
+const fontUsage = {
+  "font-abc-diatype": "Modern sans-serif for UI elements, headings, clean typography",
+  "font-abc-diatype-mono": "Code blocks, data tables, technical content",
+  "font-abc-diatype-plus": "Special designs, enhanced layouts, premium feel",
+  "font-tobias": "Editorial content, headlines, brand typography",
+  "font-geist-sans": "Fallback UI text, system integration",
+  "font-geist-mono": "Fallback code/data display",
 };
 ```
 

@@ -1,29 +1,29 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+
+@theme {
+	/* Light mode theme colors */
+	--color-background: oklch(100% 0 0);
+	--color-foreground: oklch(7% 0 0);
+	--color-primary: oklch(10% 0.02 240);
+	--color-primary-foreground: oklch(98% 0 0);
+	--color-secondary: oklch(89% 0.02 40);
+	--color-secondary-foreground: oklch(10% 0.02 240);
+	--color-muted: oklch(89% 0.02 40);
+	--color-muted-foreground: oklch(45.9% 0.02 240);
+	--color-accent: oklch(89% 0.02 40);
+	--color-accent-foreground: oklch(10% 0.02 240);
+	--color-destructive: oklch(60.2% 0.15 0);
+	--color-destructive-foreground: oklch(98% 0 0);
+	--color-border: oklch(85% 0.01 45);
+	--color-input: oklch(85% 0.01 45);
+	--color-ring: oklch(10% 0.02 240);
+	--radius: 0.5rem;
+}
 
 @layer base {
+	/* Syntax Highlighting */
 	:root {
-		/* Theme Colors */
-		--background: 0 0% 100%;
-		--foreground: 0 0% 7%;
-		--primary: 240 5.9% 10%;
-		--primary-foreground: 0 0% 98%;
-		--secondary: 40 11% 89%;
-		--secondary-foreground: 240 5.9% 10%;
-		--muted: 40 11% 89%;
-		--muted-foreground: 240 3.8% 45.9%;
-		--accent: 40 11% 89%;
-		--accent-foreground: 240 5.9% 10%;
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 0 0% 98%;
-		--border: 45 5% 85%;
-		--input: 45 5% 85%;
-		--ring: 240 5.9% 10%;
-		--radius: 0.5rem;
-
-		/* Syntax Highlighting */
 		--sh-class: #000000;
 		--sh-identifier: #000000;
 		--sh-sign: #8996a3;
@@ -36,23 +36,24 @@
 	}
 
 	.dark {
-		--background: 0 0% 7%;
-		--foreground: 0 0% 98%;
-		--primary: 0 0% 98%;
-		--primary-foreground: 0 0% 7%;
-		--secondary: 0 0% 15%;
-		--secondary-foreground: 0 0% 98%;
-		--muted: 0 0% 15%;
-		--muted-foreground: 240 5% 64.9%;
-		--accent: 0 0% 15%;
-		--accent-foreground: 0 0% 98%;
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 0 0% 98%;
-		--border: 0 0% 20%;
-		--input: 0 0% 20%;
-		--ring: 0 0% 83.1%;
+		/* Dark mode theme colors */
+		--color-background: oklch(7% 0 0);
+		--color-foreground: oklch(98% 0 0);
+		--color-primary: oklch(98% 0 0);
+		--color-primary-foreground: oklch(7% 0 0);
+		--color-secondary: oklch(15% 0 0);
+		--color-secondary-foreground: oklch(98% 0 0);
+		--color-muted: oklch(15% 0 0);
+		--color-muted-foreground: oklch(64.9% 0.01 240);
+		--color-accent: oklch(15% 0 0);
+		--color-accent-foreground: oklch(98% 0 0);
+		--color-destructive: oklch(30.6% 0.15 0);
+		--color-destructive-foreground: oklch(98% 0 0);
+		--color-border: oklch(20% 0 0);
+		--color-input: oklch(20% 0 0);
+		--color-ring: oklch(83.1% 0 0);
 
-		/* Syntax Highlighting */
+		/* Dark mode syntax highlighting */
 		--sh-class: #ffffff;
 		--sh-identifier: #ffffff;
 		--sh-sign: #8996a3;
@@ -84,14 +85,67 @@
 
 	body {
 		@apply bg-background text-foreground;
+		font-family: var(--font-figtree), system-ui, sans-serif;
 		font-size: 1rem;
 		line-height: 1.5;
+	}
+
+	/* Apply Figtree to all body text elements */
+	p, span, div, li, td, th, label, input, textarea, select, button {
+		font-family: var(--font-figtree), system-ui, sans-serif;
 	}
 }
 
 /* Custom Typography Classes */
 .font-tobias {
 	font-family: "Tobias", "Times New Roman", "Georgia", serif;
+}
+
+/* Special Button Styles - From Uiverse.io by pipic1 - Modified to pill shape */
+.button-special {
+	--key-text-color: #64748b;
+	--docsearch-key-shadow: inset 0 -2px 0 0 #cdcde6, inset 0 0 1px 1px #fff,
+		0 1px 2px 1px rgba(30, 35, 90, 0.4);
+	--docsearch-key-gradient: linear-gradient(-225deg, #d5dbe4, #f8f8f8);
+	border: none !important;
+	background: var(--docsearch-key-gradient) !important;
+	border-radius: 9999px !important; /* Full rounded (pill shape) */
+	box-shadow: var(--docsearch-key-shadow) !important;
+	color: var(--key-text-color) !important;
+	cursor: pointer;
+	height: 3rem !important; /* Match h-12 (48px) */
+	text-align: center;
+	padding: 0.75rem 1rem !important; /* Match py-3 px-4 */
+	margin: 0;
+	display: inline-block;
+	text-transform: uppercase;
+	font-weight: bold !important;
+	font-size: 0.875rem !important; /* Match text-sm (14px) */
+	min-width: 1em;
+	line-height: 1.25rem !important; /* Match leading-5 */
+	user-select: none;
+	font-family: inherit !important;
+}
+
+.font-abc-diatype {
+	font-family: var(--font-abc-diatype), system-ui, sans-serif;
+}
+
+.font-abc-diatype-mono {
+	font-family: var(--font-abc-diatype-mono), monospace;
+}
+
+.font-abc-diatype-plus {
+	font-family: var(--font-abc-diatype-plus), system-ui, sans-serif;
+}
+
+.font-figtree {
+	font-family: var(--font-figtree), system-ui, sans-serif;
+}
+
+/* Instrument serif class for italic accents */
+.instrument {
+	font-family: var(--font-instrument-serif), serif;
 }
 
 
