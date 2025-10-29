@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import type { ReactElement } from "react";
 import { baseUrl } from "./sitemap";
 import { ppNeueMontreal } from "./fonts";
+import { Header } from "@/components/header";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(baseUrl),
@@ -75,7 +76,8 @@ export default async function Layout({ children }: { children: ReactElement }) {
 					"bg-background text-foreground overflow-x-hidden antialiased",
 				)}
 			>
-					<main className="min-h-screen w-full">{children}</main>
+				<Header />
+				<main className="min-h-screen w-full pt-20 md:pt-24">{children}</main>
 			</body>
 		</html>
 	);

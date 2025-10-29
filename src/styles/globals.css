@@ -4,7 +4,7 @@
 @theme {
 	/* Light mode theme colors */
 	--color-background: oklch(100% 0 0);
-	--color-foreground: oklch(7% 0 0);
+	--color-foreground: oklch(0 0 0);
 	--color-primary: oklch(10% 0.02 240);
 	--color-primary-foreground: oklch(98% 0 0);
 	--color-secondary: oklch(89% 0.02 40);
@@ -37,7 +37,7 @@
 
 	.dark {
 		/* Dark mode theme colors */
-		--color-background: oklch(7% 0 0);
+		--color-background: oklch(0 0 0);
 		--color-foreground: oklch(98% 0 0);
 		--color-primary: oklch(98% 0 0);
 		--color-primary-foreground: oklch(7% 0 0);

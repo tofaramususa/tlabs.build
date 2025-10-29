@@ -1,12 +1,9 @@
 "use client";
 
-"use client";
-
 import React from "react";
-// import { ThemeSwitcher } from "@/components/theme/theme-switcher";
 import { cn } from "@/lib/utils";
 import Logo from "@/components/Logo";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 interface NavigationItem {
 	label: string;
@@ -14,59 +11,45 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-	{ label: "Our Story", href: "/about" },
-	{ label: "Contact", href: "/contact" },
+
+	{ label: "home", href: "/" },
+	{ label: "about", href: "/about" },
+	{ label: "contact", href: "/contact" },
+	{ label: "get in touch", href: "/contact" },
 ];
 
 export function Header() {
 	return (
-		<header className="absolute top-0 left-0 right-0 z-50 w-full">
-			<nav className="w-full py-4">
-				<div className="px-6 flex items-center justify-between">
-					{/* Logo */}
-					<div className="flex items-center">
-						<Logo className="text-foreground" width={100} height={30} />
+		<header className="fixed top-0 left-0 right-0 z-50 w-full bg-white">
+			<nav className="w-full">
+				<div className="container mx-auto py-6 md:py-8 flex items-center justify-between">
+					{/* Logo - Top Left */}
+					<div className="flex-shrink-0">
+						<Logo className="text-foreground" width={172} height={67} />
 					</div>
-					{/* Navigation Items - Centered */}
-					<div className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
+					{/* Navigation Items - Right Side */}
+					<div className="hidden md:flex items-center gap-5 lg:gap-5">
 						{navigationItems.map((item) => (
 							<a
 								key={item.label}
 								href={item.href}
-								className="text-[#1e293b] hover:text-muted-foreground transition-colors duration-200 font-[500]"
+								className={cn(
+									"text-foreground hover:text-foreground transition-colors duration-200 text-[18px] font-[200] flex items-center gap-2",
+									item.label === "get in touch" && "ml-20"
+								)}
 							>
 								{item.label}
+								{item.label === "get in touch" && (
+									<Image
+										src="/icons/arrow-rounded-white.svg"
+										alt="Arrow"
+										width={32}
+										height={32}
+										className="inline-block"
+									/>
+								)}
 							</a>
 						))}
-					</div>
-					{/* Schedule a Call Button */}
-					<div className="flex items-center">
-						<Button
-							variant="special"
-							size="special"
-							className="button-special"
-							asChild
-						>
-							<a href="/schedule">
-								Schedule a Call
-							</a>
-						</Button>
-						
-						{/* Mobile Menu Button */}
-						<button className="md:hidden ml-4 text-foreground p-2">
-							<svg
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								strokeWidth="2"
-							>
-								<line x1="3" y1="6" x2="21" y2="6" />
-								<line x1="3" y1="12" x2="21" y2="12" />
-								<line x1="3" y1="18" x2="21" y2="18" />
-							</svg>
-						</button>
 					</div>
 				</div>
 			</nav>
