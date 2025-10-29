@@ -1,11 +1,5 @@
-import { Footer } from "@/components/footer";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
-import { PreferencesProvider } from "@/lib/preferences-provider";
-import { getServerThemePreferences } from "@/lib/server-theme-utils";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
-import { tobiasFont, abcDiatypeFont, abcDiatypeMonoFont, figtreeFont, instrumentSerifFont } from "@/lib/fonts";
 import type { Metadata } from "next";
 import type { ReactElement } from "react";
 import { baseUrl } from "./sitemap";
@@ -17,27 +11,15 @@ export const metadata: Metadata = {
 		template: "%s | TLabs",
 	},
 	description:
-		"A software consultancy — We build at the edge of tech (AI, modern web, infrastructure), translating emerging tools into real solutions.",
+		"",
 	openGraph: {
 		title: "TLabs",
-		description:
-			"A software consultancy — We build at the edge of tech (AI, modern web, infrastructure), translating emerging tools into real solutions.",
+		description: "",
 		url: baseUrl,
 		siteName: "TLabs",
 		locale: "en_US",
 		type: "website",
-		images: [
-			{
-				url: "/opengraph-image.jpg",
-				width: 800,
-				height: 600,
-			},
-			{
-				url: "/opengraph-image.jpg",
-				width: 1800,
-				height: 1600,
-			},
-		],
+		images: [],
 	},
 	twitter: {
 		title: "TLabs",
@@ -77,24 +59,23 @@ export const viewport = {
 };
 
 export default async function Layout({ children }: { children: ReactElement }) {
-	const themePreferences = await getServerThemePreferences();
+	// const themePreferences = await getServerThemePreferences();
 
 	return (
 		<html
 			lang="en"
 			suppressHydrationWarning
 			className="light"
-			data-theme-preset={themePreferences.preset}
+			// data-theme-preset={themePreferences.preset}
 		>
 			<body
 				className={cn(
-					`${GeistSans.variable} ${GeistMono.variable} ${tobiasFont.variable} ${abcDiatypeFont.variable} ${abcDiatypeMonoFont.variable} ${figtreeFont.variable} ${instrumentSerifFont.variable}`,
-					"bg-background text-foreground overflow-x-hidden font-figtree antialiased",
+					// `${GeistSans.variable} ${GeistMono.variable}`,
+					// Commented out custom fonts: tobiasFont, abcDiatypeFont, abcDiatypeMonoFont, figtreeFont, instrumentSerifFont
+					"bg-background text-foreground overflow-x-hidden antialiased",
 				)}
 			>
-				<PreferencesProvider initialPreferences={themePreferences}>
 					<main className="min-h-screen w-full">{children}</main>
-				</PreferencesProvider>
 			</body>
 		</html>
 	);
