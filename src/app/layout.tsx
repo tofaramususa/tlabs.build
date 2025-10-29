@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import type { ReactElement } from "react";
 import { baseUrl } from "./sitemap";
+import { ppNeueMontreal } from "./fonts";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(baseUrl),
@@ -65,13 +66,12 @@ export default async function Layout({ children }: { children: ReactElement }) {
 		<html
 			lang="en"
 			suppressHydrationWarning
-			className="light"
+			className={cn("light", ppNeueMontreal.variable)}
 			// data-theme-preset={themePreferences.preset}
 		>
 			<body
 				className={cn(
-					// `${GeistSans.variable} ${GeistMono.variable}`,
-					// Commented out custom fonts: tobiasFont, abcDiatypeFont, abcDiatypeMonoFont, figtreeFont, instrumentSerifFont
+					"font-[family-name:var(--font-pp-neue-montreal)]",
 					"bg-background text-foreground overflow-x-hidden antialiased",
 				)}
 			>
