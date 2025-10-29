@@ -3,7 +3,7 @@
 import React from "react";
 // import { ThemeSwitcher } from "@/components/theme/theme-switcher";
 import { cn } from "@/lib/utils";
-import Logo from "@/components/logo";
+import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 
 interface NavigationItem {

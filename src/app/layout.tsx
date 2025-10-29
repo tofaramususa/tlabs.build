@@ -71,7 +71,7 @@ export default async function Layout({ children }: { children: ReactElement }) {
 		>
 			<body
 				className={cn(
-					"font-[family-name:var(--font-pp-neue-montreal)]",
+					"font-pp-neue",
 					"bg-background text-foreground overflow-x-hidden antialiased",
 				)}
 			>

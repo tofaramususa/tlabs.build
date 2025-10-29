@@ -9,13 +9,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				tobias: ["var(--font-tobias)", "Times New Roman", "Georgia", "serif"],
-				"abc-diatype": ["var(--font-abc-diatype)", "system-ui", "sans-serif"],
-				"abc-diatype-mono": ["var(--font-abc-diatype-mono)", "monospace"],
-				"abc-diatype-plus": ["var(--font-abc-diatype-plus)", "system-ui", "sans-serif"],
-				sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-				mono: ["var(--font-geist-mono)", "monospace"],
-				serif: ["var(--font-tobias)", "Times New Roman", "Georgia", "serif"],
+				"pp-neue": ["var(--font-pp-neue)", "system-ui", "sans-serif"],
+				sans: ["var(--font-pp-neue)", "system-ui", "sans-serif"],
+				mono: ["ui-monospace", "monospace"],
 			},
 			colors: {
 				background: "hsl(var(--background))",
