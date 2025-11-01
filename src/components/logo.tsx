@@ -4,19 +4,27 @@ import { cn } from "@/lib/utils";
 
 interface LogoProps {
   className?: string;
-  width?: number;
-  height?: number;
 }
 
-export default function Logo({ className, width = 180, height = 60 }: LogoProps) {
+export default function Logo({ className }: LogoProps) {
   return (
-    <Link href="/" aria-label="Go to homepage" className={cn("inline-block", className)}>
+    <Link
+      href="/"
+      aria-label="Go to homepage"
+      className={cn(
+        "inline-block w-auto h-auto",
+        // Responsive sizing: mobile to desktop
+        "max-w-[120px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-[172px]",
+        className
+      )}
+    >
       <Image
         src="/logo.svg"
         alt="TLabs Logo"
-        width={width}
-        height={height}
+        width={172}
+        height={67}
         priority
+        className="w-full h-auto"
       />
     </Link>
   );

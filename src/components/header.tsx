@@ -11,7 +11,6 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-
 	{ label: "home", href: "/" },
 	{ label: "about", href: "/about" },
 	{ label: "contact", href: "/contact" },
@@ -20,14 +19,15 @@ const navigationItems: NavigationItem[] = [
 
 export function Header() {
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50 w-full bg-white">
-			<nav className="w-full">
-				<div className="container mx-auto py-6 md:py-8 flex items-center justify-between">
+		<header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
+			<nav className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20" aria-label="Main navigation">
+				<div className="py-3 sm:py-4 md:py-6 lg:py-8 flex items-center justify-between transition-all duration-300">
 					{/* Logo - Top Left */}
 					<div className="flex-shrink-0">
-						<Logo className="text-foreground" width={172} height={67} />
+						<Logo className="text-foreground" />
 					</div>
-					{/* Navigation Items - Right Side */}
+
+					{/* Desktop Navigation - Hidden on Mobile */}
 					<div className="hidden md:flex items-center gap-5 lg:gap-5">
 						{navigationItems.map((item) => (
 							<a
@@ -51,9 +51,35 @@ export function Header() {
 							</a>
 						))}
 					</div>
+
+					{/* Mobile Menu - Visible on Mobile Only */}
+					<div className="md:hidden">
+						{/* TODO: Add custom hamburger menu trigger here */}
+						{/* This button will open your custom mobile menu */}
+						{/* Example structure:
+						<button
+							type="button"
+							aria-label="Open menu"
+							aria-expanded="false"
+							aria-controls="mobile-menu"
+							className="..."
+						>
+							Custom Hamburger Icon
+						</button>
+						*/}
+					</div>
 				</div>
 			</nav>
+
+			{/* Mobile Menu Panel - Hidden by default */}
+			{/* TODO: Add custom mobile menu panel here */}
+			{/* This will be your custom menu implementation with navigationItems */}
+			{/* Export navigationItems if needed: */}
 		</header>
 	);
 }
+
+// Export navigationItems for use in mobile menu component
+export { navigationItems };
+export type { NavigationItem };
 

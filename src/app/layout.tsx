@@ -73,11 +73,13 @@ export default async function Layout({ children }: { children: ReactElement }) {
 			<body
 				className={cn(
 					"font-pp-neue",
-					"bg-background text-foreground overflow-x-hidden antialiased",
+					"bg-background text-foreground antialiased",
 				)}
 			>
-				<Header />
-				<main className="min-h-screen w-full pt-20 md:pt-24">{children}</main>
+				<div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20">
+					<Header />
+					<main className="min-h-screen w-full pt-20 md:pt-24">{children}</main>
+				</div>
 			</body>
 		</html>
 	);
