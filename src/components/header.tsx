@@ -4,6 +4,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import Logo from "@/components/logo";
 import Image from "next/image";
+import { MobileMenu, MobileMenuToggle } from "@/components/mobile-menu";
 
 interface NavigationItem {
 	label: string;
@@ -18,64 +19,82 @@ const navigationItems: NavigationItem[] = [
 ];
 
 export function Header() {
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+	// Handle body scroll lock when menu is open
+	React.useEffect(() => {
+		if (isMobileMenuOpen) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "unset";
+		}
+
+		return () => {
+			document.body.style.overflow = "unset";
+		};
+	}, [isMobileMenuOpen]);
+
+	const toggleMobileMenu = () => {
+		setIsMobileMenuOpen((prev) => !prev);
+	};
+
+	const closeMobileMenu = () => {
+		setIsMobileMenuOpen(false);
+	};
+
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
-			<nav className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20" aria-label="Main navigation">
-				<div className="py-3 sm:py-4 md:py-6 lg:py-8 flex items-center justify-between transition-all duration-300">
-					{/* Logo - Top Left */}
-					<div className="flex-shrink-0">
-						<Logo className="text-foreground" />
-					</div>
+		<>
+			<header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
+				<nav className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20" aria-label="Main navigation">
+					<div className="py-3 sm:py-4 md:py-6 lg:py-8 flex items-center justify-between transition-all duration-300">
+						{/* Logo - Top Left */}
+						<div className="flex-shrink-0">
+							<Logo className="text-foreground" />
+						</div>
 
-					{/* Desktop Navigation - Hidden on Mobile */}
-					<div className="hidden md:flex items-center gap-5 lg:gap-5">
-						{navigationItems.map((item) => (
-							<a
-								key={item.label}
-								href={item.href}
-								className={cn(
-									"text-foreground hover:text-foreground transition-colors duration-200 text-[22px] font-[200] flex items-center gap-2",
-									item.label === "get in touch" && "ml-20"
-								)}
-							>
-								{item.label}
-								{item.label === "get in touch" && (
-									<Image
-										src="/icons/arrow-rounded-white.svg"
-										alt="Arrow"
-										width={32}
-										height={32}
-										className="inline-block"
-									/>
-								)}
-							</a>
-						))}
-					</div>
+						{/* Desktop Navigation - Hidden on Mobile */}
+						<div className="hidden md:flex items-center gap-5 lg:gap-5">
+							{navigationItems.map((item) => (
+								<a
+									key={item.label}
+									href={item.href}
+									className={cn(
+										"text-foreground hover:text-foreground transition-colors duration-200 text-[22px] font-[200] flex items-center gap-2",
+										item.label === "get in touch" && "ml-20"
+									)}
+								>
+									{item.label}
+									{item.label === "get in touch" && (
+										<Image
+											src="/icons/arrow-rounded-white.svg"
+											alt="Arrow"
+											width={32}
+											height={32}
+											className="inline-block"
+										/>
+									)}
+								</a>
+							))}
+						</div>
 
-					{/* Mobile Menu - Visible on Mobile Only */}
-					<div className="md:hidden">
-						{/* TODO: Add custom hamburger menu trigger here */}
-						{/* This button will open your custom mobile menu */}
-						{/* Example structure:
-						<button
-							type="button"
-							aria-label="Open menu"
-							aria-expanded="false"
-							aria-controls="mobile-menu"
-							className="..."
-						>
-							Custom Hamburger Icon
-						</button>
-						*/}
+						{/* Mobile Menu Toggle - Visible on Mobile Only */}
+						<div className="md:hidden">
+							<MobileMenuToggle
+								isOpen={isMobileMenuOpen}
+								onClick={toggleMobileMenu}
+							/>
+						</div>
 					</div>
-				</div>
-			</nav>
+				</nav>
+			</header>
 
-			{/* Mobile Menu Panel - Hidden by default */}
-			{/* TODO: Add custom mobile menu panel here */}
-			{/* This will be your custom menu implementation with navigationItems */}
-			{/* Export navigationItems if needed: */}
-		</header>
+			{/* Mobile Menu Panel - Outside header to avoid z-index stacking context issues */}
+			<MobileMenu
+				isOpen={isMobileMenuOpen}
+				onClose={closeMobileMenu}
+				navigationItems={navigationItems}
+			/>
+		</>
 	);
 }
 
