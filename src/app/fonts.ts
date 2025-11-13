@@ -1,4 +1,17 @@
 import localFont from "next/font/local";
+import { Instrument_Serif } from "next/font/google";
+
+/**
+ * Instrument Serif Font Family
+ * A Google Font with elegant serif styling
+ */
+export const instrumentSerif = Instrument_Serif({
+  weight: ["400"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-instrument-serif",
+  display: "swap",
+});
 
 /**
  * PP Neue Montreal Font Family

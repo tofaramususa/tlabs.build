@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import type { ReactElement } from "react";
 import { baseUrl } from "./sitemap";
-import { ppNeueMontreal } from "./fonts";
+import { ppNeueMontreal, instrumentSerif } from "./fonts";
 import { Header } from "@/components/header";
 
 export const metadata: Metadata = {
@@ -67,7 +67,7 @@ export default async function Layout({ children }: { children: ReactElement }) {
 		<html
 			lang="en"
 			suppressHydrationWarning
-			className={cn("light", ppNeueMontreal.variable)}
+			className={cn("light", ppNeueMontreal.variable, instrumentSerif.variable)}
 			// data-theme-preset={themePreferences.preset}
 		>
 			<body
