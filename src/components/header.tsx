@@ -2,7 +2,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import Logo from "@/components/Logo";
+import Logo from "@/components/logo";
 import Image from "next/image";
 
 interface NavigationItem {
