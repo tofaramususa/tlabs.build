@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Logo from "@/components/logo";
 import Image from "next/image";
@@ -24,9 +23,9 @@ export function Header() {
 			<nav className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20" aria-label="Main navigation">
 				<div className="py-3 sm:py-4 md:py-6 lg:py-8 flex items-center justify-between transition-all duration-300">
 					{/* Logo - Top Left */}
-					<Link href="/" className="flex-shrink-0">
+					<div className="flex-shrink-0">
 						<Logo className="text-foreground" />
-					</Link>
+					</div>
 
 					{/* Desktop Navigation - Hidden on Mobile */}
 					<div className="hidden md:flex items-center gap-5 lg:gap-5">
