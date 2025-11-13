@@ -16,13 +16,13 @@ This is a Next.js project for TLabs (@midday/website) that follows modern web de
 
 ### Local Development (from project root)
 ```bash
-npm run dev        # Start development server on port 3000
-npm run build      # Build production bundle (with NODE_ENV=production)
-npm run start      # Start production server
-npm run lint       # Run Biome linter/formatter checks
-npm run format     # Format code with Biome
-npm run typecheck  # Run TypeScript type checking
-npm run clean      # Clean .next and node_modules directories
+bun run dev        # Start development server on port 3000
+bun run build      # Build production bundle (with NODE_ENV=production)
+bun run start      # Start production server
+bun run lint       # Run Biome linter/formatter checks
+bun run format     # Format code with Biome
+bun run typecheck  # Run TypeScript type checking
+bun run clean      # Clean .next and node_modules directories
 ```
 
 ## UI/UX Design Patterns & Implementation Guide
