@@ -1,10 +1,13 @@
+import { AboutIntro } from "@/components/about/about-intro";
+import { AboutMission } from "@/components/about/about-mission";
+import { AboutQualities } from "@/components/about/about-qualities";
+
 export default function Page() {
 	return (
-		<div className="min-h-screen bg-background text-foreground p-8">
-			<div className="max-w-4xl mx-auto pt-32 text-center">
-				<h1 className="text-5xl font-light mb-8 font-tobias">Our Story</h1>
-				<p className="text-xl text-muted-foreground mb-16">Coming soon...</p>
-			</div>
+		<div className="min-h-screen">
+			<AboutIntro />
+			<AboutMission />
+			<AboutQualities />
 		</div>
 	);
 }

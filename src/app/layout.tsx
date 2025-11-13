@@ -5,6 +5,7 @@ import type { ReactElement } from "react";
 import { baseUrl } from "./sitemap";
 import { ppNeueMontreal, instrumentSerif } from "./fonts";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(baseUrl),
@@ -80,6 +81,7 @@ export default async function Layout({ children }: { children: ReactElement }) {
 					<Header />
 					<main className="min-h-screen w-full pt-20 md:pt-24">{children}</main>
 				</div>
+				<Footer />
 			</body>
 		</html>
 	);

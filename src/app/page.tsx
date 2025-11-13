@@ -1,3 +1,4 @@
+import { SectionFour } from "@/components/home/section-four";
 import { HeroSection } from "@/components/home/section-one";
 import { SectionThree } from "@/components/home/section-three";
 import { SectionTwo } from "@/components/home/section-two";
@@ -10,6 +11,7 @@ export default function Page() {
 			<HeroSection />
 			<SectionTwo />
 			<SectionThree />
+			<SectionFour />
 		</div>
 	);
 }

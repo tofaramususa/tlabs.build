@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Logo from "@/components/logo";
 import Image from "next/image";
@@ -23,9 +24,9 @@ export function Header() {
 			<nav className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20" aria-label="Main navigation">
 				<div className="py-3 sm:py-4 md:py-6 lg:py-8 flex items-center justify-between transition-all duration-300">
 					{/* Logo - Top Left */}
-					<div className="flex-shrink-0">
+					<Link href="/" className="flex-shrink-0">
 						<Logo className="text-foreground" />
-					</div>
+					</Link>
 
 					{/* Desktop Navigation - Hidden on Mobile */}
 					<div className="hidden md:flex items-center gap-5 lg:gap-5">
@@ -34,7 +35,7 @@ export function Header() {
 								key={item.label}
 								href={item.href}
 								className={cn(
-									"text-foreground hover:text-foreground transition-colors duration-200 text-[18px] font-[200] flex items-center gap-2",
+									"text-foreground hover:text-foreground transition-colors duration-200 text-[22px] font-[200] flex items-center gap-2",
 									item.label === "get in touch" && "ml-20"
 								)}
 							>

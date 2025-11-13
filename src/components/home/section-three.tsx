@@ -3,6 +3,7 @@
 import React from "react";
 import type { Solution } from "@/data/solutions";
 import { solutions } from "@/data/solutions";
+import { Button } from "@/components/ui/button";
 
 interface SolutionCardProps {
 	solution: Solution;
@@ -92,6 +93,20 @@ export function SectionThree() {
 					showSolutionsHeader={index === 0}
 				/>
 			))}
+
+			{/* CTA Button - Centered */}
+			<div className="mt-12 md:mt-16 flex justify-center">
+				<Button className="rounded-none tracking-tighter border-none bg-foreground text-background hover:bg-foreground/90 font-light text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8">
+					Talk to our founder
+				</Button>
+			</div>
+
+			{/* Large centered text */}
+			<div className="mt-16 md:mt-24 lg:mt-28 flex justify-center">
+				<p className="text-center font-extralight text-[24px] md:text-[32px] lg:text-[40px] xl:text-[48px] leading-tight tracking-tight text-foreground max-w-4xl px-4">
+					Our team accompanies you before, during and after the creation and deployment of your software system
+				</p>
+			</div>
 		</>
 	);
 }
