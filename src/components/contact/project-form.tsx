@@ -15,6 +15,7 @@ import {
 	FieldGroup,
 } from "@/components/ui/field";
 import { InterestPill } from "./interest-pill";
+import { sendContactAction } from "@/actions/send-contact-action";
 
 const INTERESTS = [
 	"product engineering",
@@ -69,15 +70,19 @@ export function ProjectForm() {
 	const onSubmit = async (data: ContactFormValues) => {
 		setIsSubmitting(true);
 		try {
-			console.log("Form submitted:", data);
-			// TODO: Implement server action
-			// await sendContactAction(data);
+			const result = await sendContactAction(data);
 
-			// Reset form on success
-			form.reset();
-			setSelectedInterests([]);
+			if (result.success) {
+				// Reset form on success
+				form.reset();
+				setSelectedInterests([]);
+				alert("Thank you! Your message has been sent successfully.");
+			} else {
+				alert(`Error: ${result.error || "Failed to send message. Please try again."}`);
+			}
 		} catch (error) {
 			console.error("Error submitting form:", error);
+			alert("An unexpected error occurred. Please try again.");
 		} finally {
 			setIsSubmitting(false);
 		}
