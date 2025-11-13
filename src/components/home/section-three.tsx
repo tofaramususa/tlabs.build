@@ -18,7 +18,7 @@ function SolutionCard({ solution, showSolutionsHeader = false }: SolutionCardPro
 			{/* Solutions heading with border - only show for first card */}
 			{showSolutionsHeader && (
 				<div className="mb-6 md:mb-16">
-					<h2 className="text-left font-light text-[48px] md:text-[40px] lg:text-[48px] text-foreground border-b border-foreground">
+					<h2 className="text-left font-light text-[48px] md:text-[40px] lg:text-[72px] text-foreground border-b border-foreground">
 						Solutions
 					</h2>
 				</div>
