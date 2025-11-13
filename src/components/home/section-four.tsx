@@ -36,7 +36,7 @@ export function SectionFour() {
 						</div>
 
 						{/* Description */}
-						<div className="mb-6 md:mb-8 flex-grow">
+						<div className="mb-6 md:mb-8 flex-grow tracking-tighter">
 							<p className="text-left font-light text-sm md:text-base leading-relaxed text-foreground">
 								{step.description}
 							</p>
@@ -44,14 +44,14 @@ export function SectionFour() {
 
 						{/* Deliverables */}
 						<div>
-							<p className="text-left font-light text-sm md:text-base text-foreground mb-2">
+							<p className="text-left font-light tracking-tighter text-sm md:text-base text-foreground mb-2">
 								Deliverables:
 							</p>
 							<ul className="space-y-1">
 								{step.deliverables.map((deliverable, index) => (
 									<li
 										key={index}
-										className="text-left font-light text-sm md:text-base text-foreground"
+										className="text-left font-light tracking-tighter text-sm md:text-base text-foreground"
 									>
 										{deliverable}
 									</li>
