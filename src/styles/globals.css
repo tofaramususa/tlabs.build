@@ -6,7 +6,7 @@
 
 @theme {
 	/* Light mode theme colors */
-	--color-background: oklch(100% 0 0);
+	--color-background: oklch(0.9553 0.0029 84.56);
 	--color-foreground: oklch(0 0 0);
 	--color-primary: oklch(10% 0.02 240);
 	--color-primary-foreground: oklch(98% 0 0);
@@ -417,7 +417,7 @@ img::selection {
 
 :root {
 	--radius: 0.625rem;
-	--background: oklch(1 0 0);
+	--background: oklch(0.9553 0.0029 84.56);
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.145 0 0);

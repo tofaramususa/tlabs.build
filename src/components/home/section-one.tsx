@@ -8,10 +8,10 @@ export function HeroSection() {
 		<section className="flex w-full max-w-full flex-col overflow-hidden bg-background py-8 md:py-16">
 			{/* Heading - Left aligned on all breakpoints */}
 			<div className="mb-8 md:mb-12">
-				<h1 className="text-left font-light text-[32px] leading-tight tracking-tight text-foreground sm:text-[38px] md:text-[44px] lg:text-[56px] xl:text-[72px]">
-					<span className="block whitespace-nowrap">We build intelligent digital</span>
-					<span className="block whitespace-nowrap">products that transform</span>
-					<span className="block whitespace-nowrap">companies.</span>
+				<h1 className="text-left font-light text-[48px] leading-tight tracking-tight text-foreground sm:text-[38px] md:text-[44px] lg:text-[56px] xl:text-[72px]">
+					<span className="block whitespace">We build intelligent digital</span>
+					<span className="block whitespace">products that transform</span>
+					<span className="block whitespace">companies.</span>
 				</h1>
 			</div>
 
