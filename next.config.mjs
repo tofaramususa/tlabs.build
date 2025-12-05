@@ -19,6 +19,7 @@ const config = {
 				hostname: "**",
 			},
 		],
+		qualities: [75, 100],
 	},
 	async redirects() {
 		return [

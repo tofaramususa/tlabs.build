@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Instrument_Serif } from "next/font/google";
+import { Instrument_Serif, Playfair_Display, Inter } from "next/font/google";
 
 /**
  * Instrument Serif Font Family
@@ -10,6 +10,30 @@ export const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-instrument-serif",
+  display: "swap",
+});
+
+/**
+ * Playfair Display Font Family
+ * A Google Font with elegant serif styling, perfect for headlines and display text
+ */
+export const playfairDisplay = Playfair_Display({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-playfair-display",
+  display: "swap",
+});
+
+/**
+ * Inter Font Family
+ * A modern, clean sans-serif font designed for user interfaces
+ */
+export const inter = Inter({
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
 });
 

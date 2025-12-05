@@ -34,3 +34,9 @@ export const contactFormSchema = z.object({
 		message: "Please select at least one interest.",
 	}),
 });
+
+export const waitlistSchema = z.object({
+	email: z.string().email({
+		message: "Please enter a valid email address.",
+	}),
+});
