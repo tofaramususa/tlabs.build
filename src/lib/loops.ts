@@ -1,8 +1,9 @@
 import "server-only";
 import { LoopsClient } from "loops";
+import { env } from "./env";
 
 // Initialize Loops client
-export const loops = new LoopsClient(process.env.LOOPS_API_KEY as string);
+export const loops = new LoopsClient(env.LOOPS_API_KEY);
 
 export interface WaitlistEntry {
 	email: string;
@@ -67,7 +68,7 @@ export async function addToWaitlist(entry: WaitlistEntry) {
 export async function sendWaitlistWelcomeEmail(email: string) {
 	try {
 		const resp = await loops.sendTransactionalEmail({
-			transactionalId: process.env.LOOPS_WAITLIST_WELCOME_ID as string,
+			transactionalId: env.LOOPS_WAITLIST_WELCOME_ID,
 			email,
 			dataVariables: {},
 		});

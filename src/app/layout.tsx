@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import type { ReactElement } from "react";
+import type { ReactNode } from "react";
 import { baseUrl } from "./sitemap";
 import { ppNeueMontreal, instrumentSerif } from "./fonts";
 import { LayoutContent } from "@/components/layout-content";
@@ -60,7 +60,7 @@ export const viewport = {
 	],
 };
 
-export default async function Layout({ children }: { children: ReactElement }) {
+export default async function Layout({ children }: { children: ReactNode }) {
 	// const themePreferences = await getServerThemePreferences();
 
 	return (
