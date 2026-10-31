@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Structure
 
-This is a Next.js project for TLabs (@midday/website) that follows modern web development patterns inspired by Midday's design system. The project uses a standard Next.js App Router structure:
+This is a Next.js project for TLabs (@tlabs/website) that follows modern web development patterns inspired by Midday's design system. The project uses a standard Next.js App Router structure:
 
 - **Main App**: `src/app/` contains Next.js App Router pages and layouts
 - **Components**: Reusable UI components using CVA (Class Variance Authority) for styling
