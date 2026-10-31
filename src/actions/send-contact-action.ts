@@ -1,50 +1,55 @@
 "use server";
 
-import { z } from "zod";
 import { resend } from "@/utils/resend";
+import { actionClient } from "./safe-action";
 import { contactFormSchema } from "./schema";
 
-export async function sendContactAction(
-	data: z.infer<typeof contactFormSchema>
-) {
-	try {
-		// Validate the data
-		const validatedData = contactFormSchema.parse(data);
+const HTML_ESCAPES: Record<string, string> = {
+	"&": "&amp;",
+	"<": "&lt;",
+	">": "&gt;",
+	'"': "&quot;",
+	"'": "&#39;",
+};
 
-		// Send email using Resend
+function escapeHtml(value: string) {
+	return value.replace(/[&<>"']/g, (ch) => HTML_ESCAPES[ch]);
+}
+
+export const sendContactAction = actionClient
+	.inputSchema(contactFormSchema)
+	.action(async ({ parsedInput: data }) => {
+		const fullName = escapeHtml(data.fullName);
+		const email = escapeHtml(data.email);
+		const projectDetails = escapeHtml(data.projectDetails).replace(
+			/\n/g,
+			"<br />",
+		);
+		const interests = data.interests
+			.map((interest) => `<li>${escapeHtml(interest)}</li>`)
+			.join("");
+
 		const response = await resend.emails.send({
 			from: "TLabs Contact Form <onboarding@resend.dev>", // Update this with your verified domain
 			to: "tofara@tlabs.build",
-			subject: `New Contact Form Submission from ${validatedData.fullName}`,
+			// Subjects are plain text; strip line breaks so they can't add headers.
+			subject: `New Contact Form Submission from ${data.fullName.replace(/[\r\n]+/g, " ")}`,
 			html: `
 				<h2>New Contact Form Submission</h2>
-				<p><strong>Name:</strong> ${validatedData.fullName}</p>
-				<p><strong>Email:</strong> ${validatedData.email}</p>
+				<p><strong>Name:</strong> ${fullName}</p>
+				<p><strong>Email:</strong> ${email}</p>
 				<p><strong>Project Details:</strong></p>
-				<p>${validatedData.projectDetails}</p>
+				<p>${projectDetails}</p>
 				<p><strong>Interests:</strong></p>
 				<ul>
-					${validatedData.interests.map((interest) => `<li>${interest}</li>`).join("")}
+					${interests}
 				</ul>
 			`,
 		});
 
 		if (response.error) {
-			return {
-				success: false,
-				error: response.error.message,
-			};
+			throw new Error(`Resend error: ${response.error.message}`);
 		}
 
-		return {
-			success: true,
-			data: response.data,
-		};
-	} catch (error) {
-		console.error("Error sending contact email:", error);
-		return {
-			success: false,
-			error: error instanceof Error ? error.message : "Failed to send message",
-		};
-	}
-}
+		return { success: true };
+	});

@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
+import { Button } from "@/components/ui/button";
 import type { Quality } from "@/data/qualities";
 import { qualities } from "@/data/qualities";
-import { Button } from "@/components/ui/button";
 
 interface QualityCardProps {
 	quality: Quality;
@@ -49,8 +48,15 @@ export function AboutQualities() {
 
 				{/* CTA Button - Centered */}
 				<div className="mt-8 md:mt-16 flex justify-center">
-					<Button asChild className="rounded-none tracking-tighter border-none bg-foreground text-background hover:bg-foreground/90 font-light text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8">
-						<a href="https://calendly.com/tofara-tlabs/30min-with-tofara" target="_blank" rel="noopener noreferrer">
+					<Button
+						asChild
+						className="rounded-none tracking-tighter border-none bg-foreground text-background hover:bg-foreground/90 font-light text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8"
+					>
+						<a
+							href="https://calendly.com/tofara-tlabs/30min-with-tofara"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							Talk to our founder
 						</a>
 					</Button>

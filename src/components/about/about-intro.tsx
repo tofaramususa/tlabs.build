@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 export function AboutIntro() {
 	return (
 		<section className="flex w-full max-w-full min-h-screen flex-col justify-center overflow-hidden bg-background">

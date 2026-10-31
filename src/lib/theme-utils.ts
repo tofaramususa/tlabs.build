@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeMode, ThemePreset, ThemePreferences } from "./theme";
+import type { ThemeMode, ThemePreferences, ThemePreset } from "./theme";
 
 export function updateThemeMode(mode: ThemeMode) {
 	const html = document.documentElement;
@@ -25,13 +25,14 @@ export function updateTheme(preferences: ThemePreferences) {
 export function setValueToCookie(name: string, value: string, days = 365) {
 	const expires = new Date();
 	expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+	// biome-ignore lint/suspicious/noDocumentCookie: simple synchronous theme cookie
 	document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
 }
 
 export function getValueFromCookie(name: string): string | null {
 	if (typeof document === "undefined") return null;
 
-	const nameEQ = name + "=";
+	const nameEQ = `${name}=`;
 	const ca = document.cookie.split(";");
 
 	for (let i = 0; i < ca.length; i++) {

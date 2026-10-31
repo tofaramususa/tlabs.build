@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import { motion } from "framer-motion";
+import * as React from "react";
 import { cn } from "@/lib/utils";
 
 export interface MobileMenuToggleProps {
@@ -26,7 +26,7 @@ export const MobileMenuToggle = React.forwardRef<
 				"relative w-12 h-12 flex items-center justify-center",
 				"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
 				"transition-colors",
-				className
+				className,
 			)}
 		>
 			{/* Menu Text - Visible when closed */}

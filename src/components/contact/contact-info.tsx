@@ -1,8 +1,5 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-
 export function ContactInfo() {
 	return (
 		<div className="flex flex-col gap-8 md:gap-12">
@@ -39,6 +36,7 @@ export function ContactInfo() {
 							height="24"
 							viewBox="0 0 24 24"
 							fill="none"
+							aria-hidden="true"
 							className="text-foreground hover:text-foreground/80 transition-colors"
 						>
 							<path
@@ -46,6 +44,7 @@ export function ContactInfo() {
 								fill="currentColor"
 							/>
 						</svg>
+						<span className="sr-only">Chat on WhatsApp</span>
 					</a>
 				</div>
 			</div>

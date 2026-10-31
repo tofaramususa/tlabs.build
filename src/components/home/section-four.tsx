@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-import { processSteps } from "@/data/process";
 import { Button } from "@/components/ui/button";
+import { processSteps } from "@/data/process";
 
 export function SectionFour() {
 	return (
@@ -48,9 +47,9 @@ export function SectionFour() {
 								Deliverables:
 							</p>
 							<ul className="space-y-1">
-								{step.deliverables.map((deliverable, index) => (
+								{step.deliverables.map((deliverable) => (
 									<li
-										key={index}
+										key={deliverable}
 										className="text-left font-light tracking-tighter text-sm md:text-base text-foreground"
 									>
 										{deliverable}

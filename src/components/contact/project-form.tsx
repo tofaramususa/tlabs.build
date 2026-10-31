@@ -1,21 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
-import { Controller, FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { ArrowRight } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
+import { Controller, FormProvider, useForm } from "react-hook-form";
+import { z } from "zod";
+import { sendContactAction } from "@/actions/send-contact-action";
 import { Button } from "@/components/ui/button";
 import {
 	Field,
-	FieldLabel,
 	FieldError,
 	FieldGroup,
+	FieldLabel,
 } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { InterestPill } from "./interest-pill";
-import { sendContactAction } from "@/actions/send-contact-action";
 
 const INTERESTS = [
 	"product engineering",
@@ -72,13 +72,13 @@ export function ProjectForm() {
 		try {
 			const result = await sendContactAction(data);
 
-			if (result.success) {
+			if (result?.data?.success) {
 				// Reset form on success
 				form.reset();
 				setSelectedInterests([]);
 				alert("Thank you! Your message has been sent successfully.");
 			} else {
-				alert(`Error: ${result.error || "Failed to send message. Please try again."}`);
+				alert("Error: Failed to send message. Please try again.");
 			}
 		} catch (error) {
 			console.error("Error submitting form:", error);
@@ -103,7 +103,10 @@ export function ProjectForm() {
 							control={form.control}
 							render={({ field, fieldState }) => (
 								<Field data-invalid={fieldState.invalid}>
-									<FieldLabel htmlFor={field.name} className="text-base md:text-xl lg:text-2xl font-light">
+									<FieldLabel
+										htmlFor={field.name}
+										className="text-base md:text-xl lg:text-2xl font-light"
+									>
 										Full Name
 									</FieldLabel>
 									<Input
@@ -112,7 +115,9 @@ export function ProjectForm() {
 										aria-invalid={fieldState.invalid}
 										{...field}
 									/>
-									{fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+									{fieldState.invalid && (
+										<FieldError errors={[fieldState.error]} />
+									)}
 								</Field>
 							)}
 						/>
@@ -123,7 +128,10 @@ export function ProjectForm() {
 							control={form.control}
 							render={({ field, fieldState }) => (
 								<Field data-invalid={fieldState.invalid}>
-									<FieldLabel htmlFor={field.name} className="text-base md:text-xl lg:text-2xl font-light">
+									<FieldLabel
+										htmlFor={field.name}
+										className="text-base md:text-xl lg:text-2xl font-light"
+									>
 										Email
 									</FieldLabel>
 									<Input
@@ -133,7 +141,9 @@ export function ProjectForm() {
 										aria-invalid={fieldState.invalid}
 										{...field}
 									/>
-									{fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+									{fieldState.invalid && (
+										<FieldError errors={[fieldState.error]} />
+									)}
 								</Field>
 							)}
 						/>
@@ -144,7 +154,10 @@ export function ProjectForm() {
 							control={form.control}
 							render={({ field, fieldState }) => (
 								<Field data-invalid={fieldState.invalid}>
-									<FieldLabel htmlFor={field.name} className="text-base md:text-xl lg:text-2xl font-light">
+									<FieldLabel
+										htmlFor={field.name}
+										className="text-base md:text-xl lg:text-2xl font-light"
+									>
 										Project Details
 									</FieldLabel>
 									<Textarea
@@ -153,7 +166,9 @@ export function ProjectForm() {
 										aria-invalid={fieldState.invalid}
 										{...field}
 									/>
-									{fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+									{fieldState.invalid && (
+										<FieldError errors={[fieldState.error]} />
+									)}
 								</Field>
 							)}
 						/>
@@ -177,7 +192,9 @@ export function ProjectForm() {
 											/>
 										))}
 									</div>
-									{fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+									{fieldState.invalid && (
+										<FieldError errors={[fieldState.error]} />
+									)}
 								</Field>
 							)}
 						/>

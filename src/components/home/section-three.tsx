@@ -1,16 +1,18 @@
 "use client";
 
-import React from "react";
+import { Button } from "@/components/ui/button";
 import type { Solution } from "@/data/solutions";
 import { solutions } from "@/data/solutions";
-import { Button } from "@/components/ui/button";
 
 interface SolutionCardProps {
 	solution: Solution;
 	showSolutionsHeader?: boolean;
 }
 
-function SolutionCard({ solution, showSolutionsHeader = false }: SolutionCardProps) {
+function SolutionCard({
+	solution,
+	showSolutionsHeader = false,
+}: SolutionCardProps) {
 	const isNumberLeft = solution.numberPosition === "left";
 
 	return (
@@ -44,30 +46,40 @@ function SolutionCard({ solution, showSolutionsHeader = false }: SolutionCardPro
 				</div>
 
 				{/* Content - Title, subtitle, description, tags */}
-				<div className={`flex-1 md:max-w-2xl ${isNumberLeft ? "md:order-2 md:ml-auto" : "md:order-1"}`}>
+				<div
+					className={`flex-1 md:max-w-2xl ${isNumberLeft ? "md:order-2 md:ml-auto" : "md:order-1"}`}
+				>
 					{/* Title */}
 					<div className="mb-2 md:mb-8">
-						<h3 className={`text-left ${isNumberLeft ? "md:text-right" : "md:text-left"} text-[24px] md:text-[36px] lg:text-[44px] text-foreground`}>
+						<h3
+							className={`text-left ${isNumberLeft ? "md:text-right" : "md:text-left"} text-[24px] md:text-[36px] lg:text-[44px] text-foreground`}
+						>
 							{solution.title}
 						</h3>
 					</div>
 
 					{/* Subtitle */}
 					<div className="mb-2 md:mb-8">
-						<p className={`text-left ${isNumberLeft ? "md:text-right" : "md:text-left"} font-light tracking-tight text-lg md:text-xl lg:text-2xl text-foreground`}>
+						<p
+							className={`text-left ${isNumberLeft ? "md:text-right" : "md:text-left"} font-light tracking-tight text-lg md:text-xl lg:text-2xl text-foreground`}
+						>
 							{solution.subtitle}
 						</p>
 					</div>
 
 					{/* Description */}
 					<div className="mb-4 md:mb-8">
-						<p className={`text-left ${isNumberLeft ? "md:text-right" : "md:text-left"} tracking-tighter leading-relaxed text-sm md:text-lg lg:text-xl text-foreground`}>
+						<p
+							className={`text-left ${isNumberLeft ? "md:text-right" : "md:text-left"} tracking-tighter leading-relaxed text-sm md:text-lg lg:text-xl text-foreground`}
+						>
 							{solution.description}
 						</p>
 					</div>
 
 					{/* Tags */}
-					<div className={`flex flex-wrap gap-2 md:gap-3 ${isNumberLeft ? "md:justify-end" : "md:justify-start"}`}>
+					<div
+						className={`flex flex-wrap gap-2 md:gap-3 ${isNumberLeft ? "md:justify-end" : "md:justify-start"}`}
+					>
 						{solution.tags.map((tag) => (
 							<span
 								key={tag}
@@ -96,8 +108,15 @@ export function SectionThree() {
 
 			{/* CTA Button - Centered */}
 			<div className="mt-12 md:mt-16 flex justify-center">
-				<Button asChild className="rounded-none tracking-tighter border-none bg-foreground text-background hover:bg-foreground/90 font-light text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8">
-					<a href="https://calendly.com/tofara-tlabs/30min-with-tofara" target="_blank" rel="noopener noreferrer">
+				<Button
+					asChild
+					className="rounded-none tracking-tighter border-none bg-foreground text-background hover:bg-foreground/90 font-light text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8"
+				>
+					<a
+						href="https://calendly.com/tofara-tlabs/30min-with-tofara"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						Talk to our founder
 					</a>
 				</Button>
@@ -106,7 +125,8 @@ export function SectionThree() {
 			{/* Large centered text */}
 			<div className="mt-16 md:mt-24 lg:mt-28 flex justify-center">
 				<p className="text-center font-extralight text-[24px] md:text-[32px] lg:text-[40px] xl:text-[48px] leading-tight tracking-tight text-foreground max-w-4xl px-4">
-					Our team accompanies you before, during and after the creation and deployment of your software system
+					Our team accompanies you before, during and after the creation and
+					deployment of your software system
 				</p>
 			</div>
 		</>

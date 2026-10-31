@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
-import { cn } from "@/lib/utils";
-import Logo from "@/components/logo";
 import Image from "next/image";
+import React from "react";
+import Logo from "@/components/logo";
 import { MobileMenu, MobileMenuToggle } from "@/components/mobile-menu";
+import { cn } from "@/lib/utils";
 
 interface NavigationItem {
 	label: string;
@@ -45,7 +45,10 @@ export function Header() {
 	return (
 		<>
 			<header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
-				<nav className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20" aria-label="Main navigation">
+				<nav
+					className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20"
+					aria-label="Main navigation"
+				>
 					<div className="py-3 sm:py-4 md:py-6 lg:py-8 flex items-center justify-between transition-all duration-300">
 						{/* Logo - Top Left */}
 						<div className="flex-shrink-0">
@@ -60,7 +63,7 @@ export function Header() {
 									href={item.href}
 									className={cn(
 										"text-foreground hover:text-foreground transition-colors duration-200 text-[22px] font-[200] flex items-center gap-2",
-										item.label === "get in touch" && "ml-20"
+										item.label === "get in touch" && "ml-20",
 									)}
 								>
 									{item.label}
@@ -98,7 +101,6 @@ export function Header() {
 	);
 }
 
+export type { NavigationItem };
 // Export navigationItems for use in mobile menu component
 export { navigationItems };
-export type { NavigationItem };
-

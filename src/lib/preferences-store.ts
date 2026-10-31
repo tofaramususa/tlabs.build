@@ -1,18 +1,11 @@
 "use client";
 
 import {
-	ThemeMode,
-	ThemePreset,
-	ThemePreferences,
 	DEFAULT_THEME_PREFERENCES,
+	type ThemeMode,
+	type ThemePreferences,
+	type ThemePreset,
 } from "./theme";
-
-interface PreferencesState {
-	theme: ThemePreferences;
-	setThemeMode: (mode: ThemeMode) => void;
-	setThemePreset: (preset: ThemePreset) => void;
-	setTheme: (preferences: ThemePreferences) => void;
-}
 
 class PreferencesStore {
 	private state: ThemePreferences = DEFAULT_THEME_PREFERENCES;
@@ -22,7 +15,7 @@ class PreferencesStore {
 
 	setState = (newState: Partial<ThemePreferences>) => {
 		this.state = { ...this.state, ...newState };
-		this.listeners.forEach((listener) => listener());
+		for (const listener of this.listeners) listener();
 	};
 
 	subscribe = (listener: () => void) => {
@@ -49,22 +42,3 @@ class PreferencesStore {
 }
 
 export const preferencesStore = new PreferencesStore();
-
-export const usePreferences = () => {
-	const [state, setState] = React.useState(preferencesStore.getState());
-
-	React.useEffect(() => {
-		return preferencesStore.subscribe(() => {
-			setState(preferencesStore.getState());
-		});
-	}, []);
-
-	return {
-		theme: state,
-		setThemeMode: preferencesStore.setThemeMode,
-		setThemePreset: preferencesStore.setThemePreset,
-		setTheme: preferencesStore.setTheme,
-	};
-};
-
-import React from "react";

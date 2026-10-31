@@ -1,9 +1,10 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { ThemePreferences, DEFAULT_THEME_PREFERENCES } from "./theme";
+import type React from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { preferencesStore } from "./preferences-store";
-import { updateTheme, saveThemePreferences } from "./theme-utils";
+import { DEFAULT_THEME_PREFERENCES, type ThemePreferences } from "./theme";
+import { saveThemePreferences, updateTheme } from "./theme-utils";
 
 interface PreferencesContextValue {
 	preferences: ThemePreferences;

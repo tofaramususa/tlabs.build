@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 
 export function HeroSection() {
@@ -18,14 +17,18 @@ export function HeroSection() {
 			{/* Description - Right aligned on all breakpoints */}
 			<div className="mb-8 flex justify-end md:mb-12">
 				<p className="w-full max-w-xl md:translate-y-10 text-right font-light leading-relaxed tracking-tighter text-foreground text-base sm:text-lg md:text-xl lg:text-2xl">
-					We go beyond building, we transform. From idea to final product, we help companies grow through practical system design and AI-based engineering. We create systems that automate work and unlock insight, turning slow, complex processes into fast, cost-saving solutions.
+					We go beyond building, we transform. From idea to final product, we
+					help companies grow through practical system design and AI-based
+					engineering. We create systems that automate work and unlock insight,
+					turning slow, complex processes into fast, cost-saving solutions.
 				</p>
 			</div>
 
 			{/* Scroll button - Left aligned on all breakpoints */}
 			<div className="flex flex-row gap-2">
 				<p className="text-left font-light tracking-tighter text-foreground text-base sm:text-xl lg:text-2xl">
-					scroll</p>
+					scroll
+				</p>
 				<Image
 					src="/icons/arrow-rounded-white.svg"
 					alt="Arrow"

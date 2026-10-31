@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -76,7 +75,13 @@ export function Footer() {
 									variant="outline"
 									className="rounded-none border border-white bg-transparent text-white hover:bg-white hover:text-black transition-colors font-light text-base md:text-xl lg:text-2xl px-8 py-4 md:px-12 md:py-6 lg:px-16 lg:py-8"
 								>
-									<Link href="https://calendly.com/tofara-tlabs/30min-with-tofara" target="_blank" rel="noopener noreferrer">Book a meeting</Link>
+									<Link
+										href="https://calendly.com/tofara-tlabs/30min-with-tofara"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										Book a meeting
+									</Link>
 								</Button>
 							</div>
 						</div>
