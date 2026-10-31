@@ -5,20 +5,19 @@ A modern, high-performance website built with Next.js 15, React 19, and Tailwind
 ## Tech Stack
 
 ### Core Framework
-- **Next.js 15.5.2** - React framework with App Router
-- **React 19.1.1** - Latest React with concurrent features
-- **TypeScript 5.9.2** - Type-safe JavaScript
+- **Next.js 15.5.28** - React framework with App Router
+- **React 19.1.5** - Latest React with concurrent features
+- **TypeScript 5.9** - Type-safe JavaScript
 - **Bun** - Fast JavaScript runtime and package manager
 
 ### Styling & UI
 - **Tailwind CSS v4** - Utility-first CSS framework
 - **Class Variance Authority (CVA)** - Component variant system
 - **Framer Motion** - Advanced animations
-- **Geist Font Family** - Modern typography (Sans & Mono)
-- **Custom Fonts** - Tobias serif and ABC Diatype for branding
+- **Fonts** - PP Neue Montreal (local), Instrument Serif, Playfair Display and Inter via `next/font`
 
 ### Development Tools
-- **Biome 2.2.2** - Fast linter and formatter (replaces ESLint/Prettier)
+- **Biome 2.6.4** - Fast linter and formatter (replaces ESLint/Prettier)
 - **PostCSS** - CSS processing and optimization
 - **Sharp** - High-performance image optimization
 
@@ -26,7 +25,6 @@ A modern, high-performance website built with Next.js 15, React 19, and Tailwind
 - **Radix UI** - Accessible component primitives
 - **React Hook Form** - Performant form validation
 - **Zod** - TypeScript-first schema validation
-- **date-fns** - Modern date utility library
 
 ## Getting Started
 

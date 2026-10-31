@@ -1,10 +1,10 @@
 import "@/styles/globals.css";
-import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { baseUrl } from "./sitemap";
-import { ppNeueMontreal, instrumentSerif } from "./fonts";
 import { LayoutContent } from "@/components/layout-content";
+import { cn } from "@/lib/utils";
+import { instrumentSerif, ppNeueMontreal } from "./fonts";
+import { baseUrl } from "./sitemap";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(baseUrl),
@@ -12,8 +12,7 @@ export const metadata: Metadata = {
 		default: "TLabs",
 		template: "%s | TLabs",
 	},
-	description:
-		"",
+	description: "",
 	openGraph: {
 		title: "TLabs",
 		description: "",

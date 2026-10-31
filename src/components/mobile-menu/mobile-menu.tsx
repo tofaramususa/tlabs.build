@@ -1,10 +1,10 @@
 "use client";
 
-import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import * as React from "react";
 import type { NavigationItem } from "@/components/header";
+import { cn } from "@/lib/utils";
 
 export interface MobileMenuProps {
 	isOpen: boolean;
@@ -39,7 +39,9 @@ export const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(
 						ref={ref}
 						id="mobile-menu"
 						initial={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
-						animate={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 175%, 0% 100%)" }}
+						animate={{
+							clipPath: "polygon(0% 0%, 100% 0%, 100% 175%, 0% 100%)",
+						}}
 						exit={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }}
 						transition={{
 							duration: 1.25,
@@ -49,7 +51,7 @@ export const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(
 							"fixed inset-0 z-40 bg-[#0f0f0f] dark:bg-[#0f0f0f]",
 							"flex items-center justify-center",
 							"overflow-hidden",
-							className
+							className,
 						)}
 					>
 						<motion.div
@@ -102,7 +104,7 @@ export const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(
 												"block text-white font-light",
 												"transition-colors duration-500",
 												"hover:text-white/80",
-												"relative group"
+												"relative group",
 											)}
 											style={{ fontSize: "3.5rem", letterSpacing: "-0.02rem" }}
 										>
@@ -130,7 +132,7 @@ export const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(
 										href={`mailto:${CONTACT_EMAIL}`}
 										className={cn(
 											"block text-white font-light text-2xl sm:text-3xl md:text-4xl",
-											"underline hover:opacity-80 transition-opacity"
+											"underline hover:opacity-80 transition-opacity",
 										)}
 									>
 										{CONTACT_EMAIL}
@@ -177,7 +179,7 @@ export const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(
 										className={cn(
 											"inline-block w-fit border border-white bg-transparent text-white",
 											"hover:bg-white hover:text-black transition-colors",
-											"font-light text-base sm:text-lg px-8 py-3 sm:px-12 sm:py-4"
+											"font-light text-base sm:text-lg px-8 py-3 sm:px-12 sm:py-4",
 										)}
 									>
 										Book a meeting
@@ -189,7 +191,7 @@ export const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(
 				)}
 			</AnimatePresence>
 		);
-	}
+	},
 );
 
 MobileMenu.displayName = "MobileMenu";

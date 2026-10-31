@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 export function AboutMission() {
 	return (
 		<section className="flex w-full max-w-full flex-col overflow-hidden bg-background py-8 md:py-16">

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { cn } from "@/lib/utils";
 
 interface InterestPillProps {
@@ -20,7 +19,7 @@ export function InterestPill({ label, selected, onClick }: InterestPillProps) {
 				"hover:border-foreground/60",
 				selected
 					? "bg-foreground text-background border-foreground"
-					: "bg-transparent text-foreground"
+					: "bg-transparent text-foreground",
 			)}
 		>
 			{label}

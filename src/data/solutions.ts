@@ -14,7 +14,12 @@ export const solutions: Solution[] = [
 		subtitle: "Software products, built end to end",
 		description:
 			"We design and build AI-first products that modernize how companies work, compete, and grow. From early concept to full-scale deployment, we combine strategy, data, and engineering to deliver systems that automate processes, reduce costs, and unlock new opportunities.",
-		tags: ["AI Agents", "Product Design", "Full-stack development", "Web Systems"],
+		tags: [
+			"AI Agents",
+			"Product Design",
+			"Full-stack development",
+			"Web Systems",
+		],
 		numberPosition: "right",
 	},
 	{

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { usePreferences } from "@/lib/preferences-provider";
 
 interface ThemeSwitcherProps {
@@ -12,6 +11,7 @@ export function ThemeSwitcher({ className = "" }: ThemeSwitcherProps) {
 
 	return (
 		<button
+			type="button"
 			onClick={toggleTheme}
 			className={`
         inline-flex items-center justify-center 
@@ -40,6 +40,7 @@ function SunIcon({ className = "" }: { className?: string }) {
 	return (
 		<svg
 			className={className}
+			aria-hidden="true"
 			fill="none"
 			viewBox="0 0 24 24"
 			strokeWidth={1.5}
@@ -58,6 +59,7 @@ function MoonIcon({ className = "" }: { className?: string }) {
 	return (
 		<svg
 			className={className}
+			aria-hidden="true"
 			fill="none"
 			viewBox="0 0 24 24"
 			strokeWidth={1.5}

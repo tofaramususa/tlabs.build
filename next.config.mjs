@@ -6,19 +6,10 @@ const config = {
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
-	typescript: {
-		ignoreBuildErrors: true,
-	},
 	experimental: {
 		inlineCss: true,
 	},
 	images: {
-		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "**",
-			},
-		],
 		qualities: [75, 100],
 	},
 	async redirects() {

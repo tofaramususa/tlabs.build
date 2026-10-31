@@ -155,14 +155,14 @@ const semanticColors = {
 
 ### Typography System
 
+Fonts are defined in `src/app/fonts.ts` and exposed as CSS variables:
+
 ```typescript
 const fonts = {
-  primary: "Geist Sans", // UI text, optimal readability from geist package
-  mono: "Geist Mono",    // Code, data, numbers from geist package
-  serif: "Tobias",       // Custom serif font from public/fonts/
-  display: "ABC Diatype", // Modern sans-serif for headings and UI
-  displayMono: "ABC Diatype Mono", // Monospace variant for code/data
-  displayPlus: "ABC Diatype Plus", // Enhanced variant with special features
+  sans: "PP Neue Montreal",  // Local font in public/fonts/ → --font-pp-neue (main UI text)
+  serif: "Instrument Serif", // Google font → --font-instrument-serif (display/editorial)
+  display: "Playfair Display", // Google font → --font-playfair-display
+  fallback: "Inter",         // Google font → --font-inter
 };
 
 const textSizes = {
@@ -171,16 +171,6 @@ const textSizes = {
   base: "text-base", // 16px - Main content
   lg: "text-lg",     // 18px - Headings, emphasis
   xl: "text-xl",     // 20px - Page titles
-};
-
-// Font Usage Guidelines
-const fontUsage = {
-  "font-abc-diatype": "Modern sans-serif for UI elements, headings, clean typography",
-  "font-abc-diatype-mono": "Code blocks, data tables, technical content",
-  "font-abc-diatype-plus": "Special designs, enhanced layouts, premium feel",
-  "font-tobias": "Editorial content, headlines, brand typography",
-  "font-geist-sans": "Fallback UI text, system integration",
-  "font-geist-mono": "Fallback code/data display",
 };
 ```
 
@@ -528,12 +518,12 @@ import { cn } from "@/lib/utils";
 - Semantic color system with consistent usage patterns
 - Modern spacing and typography scales
 - Animation keyframes integrated with Tailwind
-- Geist font family (Sans & Mono) with custom Tobias font for branding
+- PP Neue Montreal (local) plus Instrument Serif, Playfair Display and Inter via `next/font` (see `src/app/fonts.ts`)
 
 ### Theme System
 - Advanced dark/light mode support with system preference detection
 - Server-side theme handling to prevent hydration mismatches
-- Theme persistence with preferences store
+- Theme persistence via cookie; `usePreferences` lives in `src/lib/preferences-provider.tsx`
 - Theme-aware component variants
 - Custom theme switching components
 
@@ -560,19 +550,24 @@ export function PreferencesProvider({ children }: { children: React.ReactNode })
 
 #### Server Action Pattern
 ```typescript
-// Example from src/actions/send-support-action.ts
-import { z } from "zod";
-import { sendSupportSchema } from "./schema";
+// Example from src/actions/send-contact-action.ts
+import { actionClient } from "./safe-action";
+import { contactFormSchema } from "./schema";
 
-export async function sendSupportAction(input: z.infer<typeof sendSupportSchema>) {
-  // Validate input with Zod schema
-  // Handle form submission server-side
-  // Return success/error states
-}
+export const sendContactAction = actionClient
+  .inputSchema(contactFormSchema)
+  .action(async ({ parsedInput }) => {
+    // Input is already validated; escape anything placed into HTML.
+    // Throw on failure: safe-action logs it and returns a generic message.
+    return { success: true };
+  });
+
+// Client: const result = await sendContactAction(data);
+//         if (result?.data?.success) { ... }
 ```
 
 ### Development Environment
-- Node.js with Next.js 15.5.2 and React 19
+- Node.js with Next.js 15.5.28 and React 19
 - TypeScript with strict configuration
 - Biome for fast linting and formatting (replaces ESLint/Prettier)
 - PostCSS with Tailwind CSS v4 and Autoprefixer
@@ -584,27 +579,23 @@ The project uses these key dependencies:
 
 ```bash
 # Core Framework
-next@15.5.2            # Next.js framework with App Router
-react@19.1.1           # React 19 with concurrent features
-react-dom@19.1.1       # React DOM for web
+next@15.5.28           # Next.js framework with App Router
+react@19.1.5           # React 19 with concurrent features
+react-dom@19.1.5       # React DOM for web
 
 # Styling & UI
 class-variance-authority@^0.7.1  # CVA for component variants
 clsx@^2.1.1                     # Conditional class utilities
-tailwind-merge@^3.3.1           # Intelligent Tailwind class merging
-tailwindcss@^4.1.12             # Tailwind CSS v4
-framer-motion@^12.23.12         # Animation library
-
-# Typography & Fonts
-geist@^1.4.2           # Geist font family (Sans & Mono)
+tailwind-merge@^3.7.0           # Intelligent Tailwind class merging
+tailwindcss@^4.3.3               # Tailwind CSS v4
+framer-motion@^12.43.0         # Animation library
 
 # Development Tools
-@biomejs/biome@2.2.2   # Fast linter and formatter
+@biomejs/biome@2.6.4   # Fast linter and formatter
 typescript@^5.9.2      # TypeScript compiler
-sharp@0.34.3          # Image optimization
+sharp@0.35.5          # Image optimization
 
 # Utilities
-date-fns@^4.1.0       # Date manipulation utilities
 server-only@^0.0.1    # Server-side only code markers
 
 # Validation (via server actions)

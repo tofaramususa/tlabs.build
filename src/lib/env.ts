@@ -6,15 +6,24 @@ export const env = createEnv({
 		// Loops Configuration
 		LOOPS_API_KEY: z
 			.string()
-			.min(1, "LOOPS_API_KEY is required. Get your API key from https://app.loops.so/settings?page=api"),
+			.min(
+				1,
+				"LOOPS_API_KEY is required. Get your API key from https://app.loops.so/settings?page=api",
+			),
 		LOOPS_WAITLIST_WELCOME_ID: z
 			.string()
-			.min(1, "LOOPS_WAITLIST_WELCOME_ID is required. Create a transactional email at https://app.loops.so/transactional"),
+			.min(
+				1,
+				"LOOPS_WAITLIST_WELCOME_ID is required. Create a transactional email at https://app.loops.so/transactional",
+			),
 
 		// Resend Configuration
 		RESEND_API_KEY: z
 			.string()
-			.min(1, "RESEND_API_KEY is required. Get your API key from https://resend.com"),
+			.min(
+				1,
+				"RESEND_API_KEY is required. Get your API key from https://resend.com",
+			),
 
 		// Node environment
 		NODE_ENV: z

@@ -1,9 +1,9 @@
 import { cookies } from "next/headers";
 import {
-	ThemePreferences,
 	DEFAULT_THEME_PREFERENCES,
-	ThemeMode,
-	ThemePreset,
+	type ThemeMode,
+	type ThemePreferences,
+	type ThemePreset,
 } from "./theme";
 
 export async function getServerThemePreferences(): Promise<ThemePreferences> {
